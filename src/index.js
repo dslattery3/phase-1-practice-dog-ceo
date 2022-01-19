@@ -12,7 +12,6 @@ function buildAndAppendDogElement(imgUrl){
              imgTag.src = imgUrl
              imgTag.style.width = '200px'
              imgTag.style.height = 'auto'
-             console.log(imgTag)
             document.getElementById('dog-image-container').append(imgTag)
 }
 //Challenge 2
@@ -33,8 +32,11 @@ fetch(breedUrl)
         const breedArray = Object.keys(breed.message)
         const breedsContainer = document.getElementById('dog-breeds')
         breedArray.forEach( breedText =>{
-            newLi = document.createElement('li')
+            const newLi = document.createElement('li')
             newLi.textContent = breedText
+            newLi.addEventListener('click', event => {
+                newLi.style.color = 'purple'
+            })
             breedsContainer.append(newLi)
         })
     }
@@ -43,15 +45,6 @@ fetch(breedUrl)
 //Challenge 3 
 //change color of text when clicked
 //use event listener
-// fetch(breedUrl)
-//     .then(response => response.json())
-//     .then(data => {
-//         for(let breed in data.message) {
-//             let liTag = document.createElement('li')
-//             liTag.innerText = `${breed}`
-//             document.getElementById('dog-breeds').append(liTag) 
-//         }
-//     })
 // let li = document.getElementsByTagName('li')
 // li.addEventListener('click', colorChange
 //     // let liText = li.text
