@@ -13,14 +13,15 @@ const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 //     })   
 fetch(breedUrl)
     .then(response => response.json())
-    .then(data => {
-        console.log(data)
+    .then(({message}) => {
+        console.log(message)
+        // const {message} = data
 
         // Object.keys(data.message).forEach(breed =>{
-        for(let breed in data.message) {
-            let ulTag = document.createElement('ul')
-            ulTag.innerText = `${breed}`
-            document.getElementById('dog-breeds').append(ulTag) 
+        for(let breed in message) {
+            let liTag = document.createElement('li')
+            liTag.innerText = `${breed}`
+            document.getElementById('dog-breeds').append(liTag) 
 
         }
         // data.message.forEach((breed) =>{
